@@ -2,6 +2,9 @@
     backdrop-filter: blur(18px);
     border-bottom: 1px solid var(--grey-3);
     background: var(--bg-main);
+    position: fixed;
+    width: 100%;
+    z-index: 50;
     &__wrapper {
         @extend .padding-content;
     }
