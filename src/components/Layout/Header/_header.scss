@@ -95,10 +95,10 @@
         gap: 14px;
         border-radius: 10px;
         cursor: pointer;
+        transition: all 0.2s linear;
         & * {
             cursor: pointer;
         }
-        transition: all 0.2s linear;
         &:hover {
             background-color: var(--grey-2);
         }

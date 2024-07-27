@@ -18,7 +18,7 @@ function Header(props) {
         setLangPage(currentTarget.textContent);
     }, [])
 
-    return <section className="header">
+    return <header className="header">
         <div className="header__wrapper">
             <div className="header__content">
                 <div className="header__logo">
@@ -34,7 +34,7 @@ function Header(props) {
                                         <span className="header__link">{item?.name}</span>
                                         <div className="header__wrapper-product">
                                             {item?.select?.map((v, i) => (
-                                                <div className="header__product">
+                                                <div className="header__product" key={i}>
                                                     <div className="header__product-img">
                                                         <img src={v?.img?.src} alt={v?.img?.alt} />
                                                     </div>
@@ -65,7 +65,7 @@ function Header(props) {
                 <button className="header__sign-in">{data?.button?.text}</button>
             </div>
         </div>
-    </section>
+    </header>
 }
 
 export default Header;
