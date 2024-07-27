@@ -13,23 +13,23 @@ const data = {
                         text: "ChatGPT на базе 3.5 и 4.0 версии OpenAI",
                         img: {
                             src: "./img/Header/Icon_bothub-agg.svg",
-                            alt: ""
+                            alt: "Логотип продукта"
                         }
                     },
                     {
-                        title: "",
-                        text: "",
+                        title: "Telegram бот",
+                        text: "Удобный бот в Telegram который всегда под рукой",
                         img: {
-                            src: "",
-                            alt: ""
+                            src: "./img/Header/Icon_tg-colored.svg",
+                            alt: "Логотип продукта"
                         }
                     },
                     {
-                        title: "",
-                        text: "",
+                        title: "Бизнес бот",
+                        text: "ChatGPT для эффективного решения бизнес задач",
                         img: {
-                            src: "",
-                            alt: ""
+                            src: "./img/Header/Icon_business-colored.svg",
+                            alt: "Логотип продукта"
                         }
                     }
                 ]
@@ -44,7 +44,7 @@ const data = {
                 name: "Блог"
             }
         ],
-        lang: "RU",
+        lang: ["RU", "EN", "ES", "FR", "PT"],
         button: {
             text: "Авторизация",
         }
