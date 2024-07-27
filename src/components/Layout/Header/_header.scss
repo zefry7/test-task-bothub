@@ -1,0 +1,101 @@
+.header {
+    background: var(--bg-main);
+    &__wrapper {
+        @extend .padding-content;
+    }
+    &__content {
+        height: 80px;
+        padding: 20px 0;
+        display: flex;
+        align-items: center;
+    }
+    &__logo {
+        margin-right: 24.5px;
+        transition: all 0.2s linear;
+        cursor: pointer;
+        &:hover {
+            opacity: 0.8;
+        }
+    }
+    &__line {
+        margin-right: 23.5px;
+        border-left: 1px solid var(--grey-3);
+        height: 34px;
+    }
+    &__nav {
+        margin-right: auto;
+    }
+    &__block-link {
+        display: flex;
+        gap: 34px;
+    }
+    &__dropdown {
+        display: flex;
+        align-items: center;
+        &::after{
+            content: "";
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            margin-left: 8px;
+            background-color: var(--white);
+            -webkit-mask-image: url("./img/Icon_arrow-down.svg");
+            mask-image: url("./img/Icon_arrow-down.svg");
+        }
+        &:hover {
+            &::after{
+                background-color: var(--blue-1);
+            }
+        }
+    }
+    &__link {
+        line-height: 22px;
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--white);
+        cursor: pointer;
+        &:hover {
+            color: var(--blue-1);
+        }
+    }
+    &__lang {
+        margin-right: 34px;
+        background: initial;
+        @extend .header__link;
+        @extend .header__dropdown;
+        &::before{
+            content: "";
+            display: inline-block;
+            height: 18px;
+            width: 18px;
+            margin-right: 6px;
+            background-color: var(--white);
+            -webkit-mask-image: url("./img/Icon_lang.svg");
+            mask-image: url("./img/Icon_lang.svg");
+        }
+        &:hover {
+            &::before{
+                background-color: var(--blue-1);
+            }
+        }
+    }
+    &__sign-in {
+        width: 131px;
+        height: 40px;
+        border-radius: 8px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--white);
+        box-shadow: inset 0px 1px 1px 0px rgba(255, 255, 255, 0.4);
+        background: var(--blue-1);
+        transition: all 0.2s linear;
+
+        &:hover {
+            background: var(--blue-2);
+        }
+        
+        &:active {
+            background: var(--blue-3);
+        }
+    }
+}

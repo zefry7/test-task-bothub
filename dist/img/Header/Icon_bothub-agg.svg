@@ -1,0 +1,18 @@
+<svg width="36.000000" height="36.000000" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip4_7505">
+			<rect id="Icon/bothub-agg" rx="9.500000" width="35.000000" height="35.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<linearGradient x1="-0.141732" y1="17.999996" x2="35.858269" y2="17.999996" id="paint_linear_4_7505_0" gradientUnits="userSpaceOnUse">
+			<stop stop-color="#1C64F2"/>
+			<stop offset="1.000000" stop-color="#D41CF2"/>
+		</linearGradient>
+	</defs>
+	<rect id="Icon/bothub-agg" rx="9.500000" width="35.000000" height="35.000000" transform="translate(0.500000 0.500000)" fill="url(#paint_linear_4_7505_0)" fill-opacity="1.000000"/>
+	<g clip-path="url(#clip4_7505)">
+		<path id="Vector" d="M23 8C20.23 8 18 10.23 18 13L15.5 13C14.11 13 13 14.11 13 15.5L13 18L8 18L8 28L18 28L18 23L20.5 23C21.88 23 23 21.88 23 20.5L23 18C25.76 18 28 15.76 28 13C28 10.23 25.76 8 23 8ZM16.75 26.75L9.25 26.75L9.25 19.25L16.75 19.25L16.75 26.75ZM21.75 20.5C21.75 21.19 21.19 21.75 20.5 21.75L18 21.75L18 18L14.25 18L14.25 15.5C14.25 14.8 14.8 14.25 15.5 14.25L20.5 14.25C21.19 14.25 21.75 14.8 21.75 15.5L21.75 20.5ZM23 16.75L23 15.5C23 14.11 21.88 13 20.5 13L19.25 13C19.25 10.92 20.92 9.25 23 9.25C25.07 9.25 26.75 10.92 26.75 13C26.75 15.07 25.07 16.75 23 16.75Z" fill="#FFFFFF" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>

@@ -1,0 +1,21 @@
+@import "./null-style";
+@import "./fonts/fonts";
+@import "../components/Layout/Header/header";
+
+:root {
+    --bg-main: #121825;
+    --grey-3: #222B44;
+    --white: #FFFFFF;
+    --blue-1: #1C64F2;
+    --blue-2: #073CA4;
+    --blue-3: #0E3176;
+    --black-1: #0E0C15;
+}
+
+* {
+    font-family: IBM Plex Sans;
+}
+
+.padding-content {
+    padding: 0 315px;
+}
