@@ -122,10 +122,12 @@ select {
 .header {
   backdrop-filter: blur(18px);
   border-bottom: 1px solid var(--grey-3);
-  background: var(--bg-main);
   position: fixed;
-  width: 100%;
+  scrollbar-gutter: stable;
+  width: 100vw;
   z-index: 50;
+  top: 0;
+  left: 0;
 }
 .header__content {
   height: 80px;
@@ -313,8 +315,9 @@ select {
   transform: scale(1);
   opacity: 1;
 }
-.header__sign-in, .gener__button, .intro__button {
+.header__sign-in, .gener__button, .intro__button, .header__button-menu {
   width: 131px;
+  min-height: 40px;
   height: 40px;
   border-radius: 8px;
   font-size: 15px;
@@ -324,13 +327,132 @@ select {
   background: var(--blue-1);
   transition: all 0.2s linear;
 }
-.header__sign-in:hover, .gener__button:hover, .intro__button:hover {
+.header__sign-in:hover, .gener__button:hover, .intro__button:hover, .header__button-menu:hover {
   background: var(--blue-2);
 }
-.header__sign-in:active, .gener__button:active, .intro__button:active {
+.header__sign-in:active, .gener__button:active, .intro__button:active, .header__button-menu:active {
+  transform: translateY(3px);
   background: var(--blue-3);
 }
+.header__button-menu {
+  height: 38px;
+  width: 38px;
+  margin-left: 34px;
+  padding: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  justify-content: center;
+}
+.header__button-menu span {
+  display: inline-block;
+  height: 2px;
+  width: 100%;
+  border-radius: 2px;
+  background-color: var(--white);
+}
+.header__button-menu_active span:nth-child(1) {
+  position: relative;
+  transform: rotateZ(45deg) translateY(-50%);
+  top: 34%;
+}
+.header__button-menu_active span:nth-child(2) {
+  width: 0;
+}
+.header__button-menu_active span:nth-child(3) {
+  position: relative;
+  top: -34%;
+  transform: rotateZ(-45deg) translateY(50%);
+}
 
+@media (max-width: 834px) {
+  .header {
+    border-bottom: none;
+  }
+  .header__wrapper {
+    border-bottom: 1px solid var(--grey-3);
+    background: var(--bg-main);
+  }
+  .header__logo {
+    margin-right: auto;
+  }
+  .header__line {
+    display: none;
+  }
+  .header__nav {
+    position: absolute;
+    top: -100dvh;
+    left: 0;
+    width: 100%;
+    padding: 123px 40px 42px;
+    height: 100dvh;
+    background: var(--black-1);
+    transition: top 0.2s linear;
+    z-index: -1;
+    overflow: auto;
+  }
+  .header__nav_active {
+    top: 0px;
+  }
+  .header__dropdown .header__link::after, .header__dropdown .footer__link::after, .header__dropdown .header__lang-select::after, .header__dropdown .header__lang-item::after {
+    margin-left: auto;
+  }
+  .header__dropdown_active {
+    position: static;
+  }
+  .header__dropdown_active .header__link, .header__dropdown_active .footer__link, .header__dropdown_active .header__lang-select, .header__dropdown_active .header__lang-item {
+    margin-bottom: 14px;
+  }
+  .header__dropdown_active .header__wrapper-product {
+    position: static;
+    border-radius: 0;
+    background-color: var(--bg-main);
+  }
+  .header__wrapper-product {
+    width: 100%;
+    padding: 18px 0px;
+    gap: 18px 0;
+  }
+  .header__product {
+    gap: 13px;
+  }
+  .header__product-name {
+    font-size: 14px;
+  }
+  .header__product-text {
+    font-size: 10px;
+  }
+  .header__block-link {
+    flex-direction: column;
+    gap: 38px;
+  }
+  .header__button-menu {
+    display: flex;
+  }
+}
+@media (max-width: 640px) {
+  .header__wrapper-product {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .header__nav {
+    display: flex;
+    flex-direction: column;
+    padding: 123px 20px 42px;
+  }
+  .header__nav .header__sign-in, .header__nav .gener__button, .header__nav .intro__button, .header__nav .header__button-menu {
+    width: 100%;
+    margin-top: 24px;
+  }
+  .header__block-link {
+    margin-bottom: auto;
+  }
+  .header__lang {
+    margin-right: 0;
+  }
+  .header__button-menu {
+    margin-left: 24px;
+  }
+}
 .intro {
   position: relative;
 }
@@ -446,7 +568,7 @@ select {
   width: 50px;
   position: absolute;
   left: -62px;
-  background: url(./img/avatar.svg) center/100% no-repeat;
+  background: url(./img/Icon-avatar.svg) center/100% no-repeat;
 }
 .chat__header-name span {
   font-size: 14px;
@@ -960,6 +1082,7 @@ select {
 
 html, body {
   height: 100%;
+  scrollbar-gutter: stable;
 }
 
 #root {
@@ -978,6 +1101,10 @@ html, body {
 
 .main {
   padding-top: 80px;
+}
+
+.scroll-lock {
+  overflow: hidden;
 }
 
 @media (max-width: 640px) {

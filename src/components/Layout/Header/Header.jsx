@@ -1,10 +1,13 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 function Header(props) {
     const data = props.content;
     const dropdown = useRef();
     const langElement = useRef();
+    const navElement = useRef()
+    const buttonMenu = useRef()
     const [langPage, setLangPage] = useState(data?.lang[0])
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     const clickElementActive = useCallback((element, classActive) => {
         if (element) {
@@ -13,9 +16,27 @@ function Header(props) {
     }, [])
 
     const changeLang = useCallback((e) => {
-        const { currentTarget } = e 
+        const { currentTarget } = e
         langElement.current.classList.remove("header__lang_active")
         setLangPage(currentTarget.textContent);
+    }, [])
+
+    const clickMenu = useCallback(() => {
+        buttonMenu.current.classList.toggle("header__button-menu_active")
+        navElement.current.classList.toggle("header__nav_active")
+        document.body.classList.toggle("scroll-lock")
+    }, [])
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            setScreenWidth(window.innerWidth)
+            if (window.innerWidth > 840) {
+                buttonMenu.current.classList.remove("header__button-menu_active")
+                navElement.current.classList.remove("header__nav_active")
+                dropdown.current.classList.remove("header__dropdown_active")
+                document.body.classList.remove("scroll-lock")
+            }
+        })
     }, [])
 
     return <header className="header">
@@ -25,7 +46,7 @@ function Header(props) {
                     <img src={data?.logo?.src} alt={data?.logo?.alt} />
                 </div>
                 <div className="header__line"></div>
-                <nav className="header__nav">
+                <nav className="header__nav" ref={navElement}>
                     <ul className="header__block-link">
                         {data?.nav?.map((item, key) => (
                             (key == 0)
@@ -53,6 +74,9 @@ function Header(props) {
 
                         ))}
                     </ul>
+                    {screenWidth <= 640 &&
+                        <button className="header__sign-in">{data?.button?.text}</button>
+                    }
                 </nav>
                 <div className="header__lang" ref={langElement}>
                     <p className="header__lang-select" onClick={() => clickElementActive(langElement.current, "header__lang_active")}>{langPage}</p>
@@ -62,7 +86,14 @@ function Header(props) {
                         ))}
                     </ul>
                 </div>
-                <button className="header__sign-in">{data?.button?.text}</button>
+                {screenWidth > 640 &&
+                        <button className="header__sign-in">{data?.button?.text}</button>
+                    }
+                <button className="header__button-menu" ref={buttonMenu} onClick={clickMenu}>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </header>
