@@ -3,7 +3,7 @@ import React from "react";
 
 function MainPage(props) {
 
-    return <main>
+    return <main className="main">
         <Descr content={props?.content?.descr}/>
     </main>
 }

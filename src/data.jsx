@@ -49,6 +49,57 @@ const data = {
             text: "Авторизация",
         }
     },
+    footer: {
+        logo: {
+            src: "./img/Footer/logo.svg",
+            alt: "Логотип"
+        },
+        company: "ООО «Ботхаб» ОГРН 1236300016259",
+        name: "@BotHub 2023",
+        accept: "Пользовательское соглашение",
+        alri: {
+            src: "./img/Footer/Icon-alri.svg",
+            alt: "Алрии"
+        },
+        listCol: [
+            {
+                title: "Информация",
+                anchor: [
+                    "Главная страница",
+                    "Тарифы",
+                    "Контакты",
+                    "Наши возможности",
+                    "Модели нейросетей",
+                    "О Нас",
+                    "Для инвесторов"
+                ]
+            },
+            {
+                title: "Наши продукты",
+                anchor: [
+                    "ChatGPT для бизнеса",
+                    "Агрегатор нейросетей",
+                    "ChatGPT в Telegram",
+                ]
+            },
+            {
+                title: "Ссылки",
+                anchor: [
+                    "Сообщество в телеграм",
+                    "Телеграм бот",
+                    "email@bothub.chat",
+                ]
+            },
+            {
+                title: "Блог",
+                anchor: [
+                    "Наш блог",
+                    "Habr",
+                    "Телеграм",
+                ]
+            }
+        ]
+    },
     mainPage: {
         descr: {
             title: "Возможности ChatGPT",

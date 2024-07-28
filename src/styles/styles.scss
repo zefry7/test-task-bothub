@@ -2,6 +2,8 @@
 @import "./fonts/fonts";
 @import "../components/Layout/Header/header";
 @import "../components/MainPage/Descr/descr";
+@import "../components/Layout/Footer/footer";
+
 :root {
     --bg-main: #121825;
     --grey-1: #313E62;
@@ -12,6 +14,7 @@
     --blue-2: #073CA4;
     --blue-3: #0E3176;
     --blue-4: #4785FF;
+    --blue-5: #616D8D;
     --black-1: #0E0C15;
 }
 
@@ -20,12 +23,12 @@
 }
 
 html, body {
-    height: auto;
+    height: 100%;
 }
 
 #root {
     background-color: var(--black-1);
-    height: 100%;
+    height: auto;
     display: grid;
     grid-template-rows: auto 1fr auto;
     min-width: 375px;
@@ -35,6 +38,10 @@ html, body {
     padding: 0 40px;
     max-width: 1370px;
     margin: 0 auto;
+}
+
+.main {
+    padding-top: 100px;
 }
 
 @media (max-width: 640px) {

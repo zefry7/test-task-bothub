@@ -1,0 +1,157 @@
+.footer {
+    border-top: 1px solid var(--grey-3);
+    background: radial-gradient(51.67% 103.33% at 50% -3.33%, rgba(28, 100, 242, 0.35) 0%, rgba(8, 16, 39, 0) 53.98%), var(--bg-main);
+    &__wrapper {
+        @extend .padding-content;
+    }
+    &__content {
+        padding: 64px 0;
+        display: flex;
+        width: 100%;
+        & > .footer__col {
+            margin-right: auto;
+            gap: 0;
+        }
+    }
+    &__wrapper-list {
+        display: flex;
+        gap: clamp(15px, 3.8vw, 73px);
+
+        & .footer__col:nth-child(3) {
+            .footer__list {
+                .footer__link:nth-child(1) {
+                    &::before {
+                        display: inline-block;
+                        mask-image: url("./img/Icon-tg.svg");
+                    }
+                }
+                .footer__link:nth-child(2) {
+                    &::before {
+                        display: inline-block;
+                        mask-image: url("./img/Icon-bot.svg");
+                    }
+                }
+                .footer__link:nth-child(3) {
+                    &::before {
+                        display: inline-block;
+                        mask-image: url("./img/Icon-email.svg");
+                    }
+                }
+            }
+        }
+        & .footer__col:nth-child(4) {
+            .footer__list {
+                .footer__link:nth-child(1) {
+                    &::before {
+                        display: inline-block;
+                        background: url("./img/Icon-blog.svg") center/ 100% no-repeat;
+                    }
+                    &:hover {
+                        &::before {
+                            background: url("./img/Icon-blog-blue.svg") center/ 100% no-repeat;
+                        }
+                    }
+                }
+                .footer__link:nth-child(2) {
+                    &::before {
+                        display: inline-block;
+                        mask-image: url("./img/Icon-habr-2.svg");
+                    }
+                }
+                .footer__link:nth-child(3) {
+                    &::before {
+                        display: inline-block;    
+                        mask-image: url("./img/Icon-tg.svg");
+                    }
+                }
+            }
+        }
+    }
+    &__col {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+    &__logo {
+        margin-bottom: 20px;
+    }
+    &__text {
+        margin-bottom: 12px;
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 130%;
+        color: var(--white);
+    }
+    &__title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--blue-5);
+    }
+    &__list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px
+    }
+    &__link {
+        @extend .header__link;
+        font-weight: 400;
+        display: flex;
+        align-items: center;
+        &::before {
+            display: none;
+            content: "";
+            height: 24px;
+            width: 24px;
+            margin-right: 8px;
+            background-color: white;    
+        }
+        &:hover {
+            &::before {
+                background-color: var(--blue-1);
+            }
+        }
+    }
+}
+
+@media (max-width: 1024px) {
+    .footer {
+        background: radial-gradient(52.00% 103.00% at 50% -3%,rgba(28, 100, 242, 0.5),rgba(8, 16, 39, 0) 53.977%),rgb(18, 24, 37);
+        &__content {
+            padding: 56px 0;
+            flex-direction: column;
+            gap: 46px;
+        }
+        &__wrapper-list {
+            justify-content: space-between;
+            gap: 30px;
+        }
+        &__col {
+            gap: 18px;
+        }
+        &__list {
+            gap: 18px;
+        }
+        &__link {
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .footer {
+        background: radial-gradient(98.00% 59.00% at 50% -7.000000000000001%,rgba(28, 100, 242, 0.5),rgba(8, 16, 39, 0) 72.372%),rgb(18, 24, 37);
+        &__content {
+            padding: 44px 0;
+        }
+        &__wrapper-list {
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        &__col {
+            gap: 14px;
+        }
+        &__list {
+            gap: 14px;
+        }
+    }
+}
