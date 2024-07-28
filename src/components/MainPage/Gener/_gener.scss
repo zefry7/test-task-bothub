@@ -1,0 +1,38 @@
+.gener {
+    margin-bottom: 120px;
+    &__wrapper {
+        @extend .padding-content;
+    }
+    &__content {
+        display: flex;
+        align-items: center;
+        gap: clamp(20px, 7.3vw, 140px);
+    }
+    &__block-img {
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+    &__info {
+        width: 520px;
+    }
+    &__title {
+        width: 520px;
+        margin-bottom: 20px;
+        font-size: 34px;
+        font-weight: 600;
+        color: var(--white);
+    }
+    &__text {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 125%;
+        color: var(--white);
+    }
+    &__button {
+        @extend .header__sign-in;
+        width: 210px;
+    }
+}
+
