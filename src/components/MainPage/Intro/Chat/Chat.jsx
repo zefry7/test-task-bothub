@@ -6,6 +6,7 @@ function Chat(props) {
     const messageBlock = useRef()
     const [list, setList] = useState([])
     const newMessage = useRef(true)
+    const buttonSend = useRef()
 
     const messageBot = (myMessage) => {
         const configuration = new Configuration({
@@ -46,11 +47,18 @@ function Chat(props) {
 
     useEffect(() => {
         messageBlock.current.scrollTo({
-            top: 1000000,
+            top: 10000,
             behavior: 'smooth'
         })
     }, [list])
 
+    useEffect(() => {
+        window.addEventListener("keydown", (e) => {
+            if(e.keyCode == 13) {
+                buttonSend.current.click()
+            }
+        })
+    }, [])
 
     return <div className="chat">
         <div className="chat__header">
@@ -71,7 +79,7 @@ function Chat(props) {
             </div>
             <div className="chat__wrapper-input">
                 <input type="text" className="chat__input" placeholder={props?.content?.placeholder} ref={inputChat} />
-                <button className="chat__button" onClick={clickSend}></button>
+                <button className="chat__button" onClick={clickSend} ref={buttonSend}></button>
             </div>
         </div>
     </div>

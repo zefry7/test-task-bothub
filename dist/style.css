@@ -331,19 +331,25 @@ select {
   background: var(--blue-3);
 }
 
+.intro {
+  position: relative;
+}
 .intro__content {
+  padding: 119px 0;
   position: relative;
   z-index: 5;
-  height: 831px;
   display: flex;
   align-items: center;
+  gap: 30px;
 }
 .intro__info {
-  width: 520px;
+  max-width: 520px;
+  width: 100%;
 }
 .intro__title {
   margin-bottom: 20px;
-  width: 520px;
+  max-width: 520px;
+  width: 100%;
   font-size: 46px;
   line-height: 130%;
   font-weight: 600;
@@ -358,6 +364,8 @@ select {
 }
 .intro__button {
   width: 172px;
+  height: 52px;
+  font-size: 18px;
 }
 .intro__grid {
   top: 0;
@@ -365,20 +373,55 @@ select {
   position: absolute;
   height: 100%;
   width: 100%;
-  background: url(./img/grid.svg) center/100% no-repeat;
+  background: url(./img/grid.svg) left center/1200px 100% repeat-x;
 }
 
+@media (max-width: 1024px) {
+  .intro__content {
+    padding: 66px 0 74px;
+    flex-direction: column;
+    gap: 46px;
+  }
+  .intro__info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .intro__info, .intro__title {
+    max-width: 754px;
+  }
+  .intro__title, .intro__text {
+    text-align: center;
+  }
+  .intro__title {
+    margin-bottom: 18px;
+    font-size: 40px;
+  }
+  .intro__text {
+    margin-bottom: 38px;
+    font-size: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .intro__title {
+    margin-bottom: 14px;
+    font-size: 28px;
+  }
+  .intro__text {
+    margin-bottom: 30px;
+  }
+}
 .chat {
   border-radius: 24px;
-  height: 571px;
-  width: 741px;
+  max-width: 741px;
+  min-width: 520px;
+  width: 100%;
   border: 1px solid #363F54;
   background-color: var(--bg-main);
   display: flex;
   flex-direction: column;
 }
 .chat__header {
-  height: 82px;
   border-bottom: 1px solid #363F54;
   padding: 16px 24px;
   display: flex;
@@ -387,10 +430,12 @@ select {
 .chat__header-name {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   font-size: 16px;
   line-height: 125%;
   color: var(--white);
   position: relative;
+  height: 50px;
   margin-left: 62px;
   margin-right: auto;
 }
@@ -400,7 +445,6 @@ select {
   height: 50px;
   width: 50px;
   position: absolute;
-  top: -6px;
   left: -62px;
   background: url(./img/avatar.svg) center/100% no-repeat;
 }
@@ -427,6 +471,7 @@ select {
   background-color: var(--grey-1);
 }
 .chat__header-checkbox:has(input:checked)::after {
+  border: 1px solid var(--blue-1);
   background: url(./img/true.svg) center/14px no-repeat, var(--blue-1);
 }
 .chat__header-box {
@@ -436,9 +481,10 @@ select {
   height: 20px;
   width: 20px;
   opacity: 0;
+  z-index: -1;
 }
 .chat__wrapper-block {
-  padding: 0 0px 20px;
+  padding-bottom: 24px;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -447,8 +493,7 @@ select {
 .chat__message-block {
   padding: 24px;
   overflow: auto;
-  max-height: 408px;
-  height: 100%;
+  height: 421px;
   display: flex;
   flex-direction: column;
   gap: 22px;
@@ -499,15 +544,9 @@ select {
   margin-left: auto;
 }
 .message__my .message__text {
-  word-break: break-all;
-  padding: 14px 16px;
-  font-size: 16px;
-  line-height: 125%;
   border-radius: 10px 10px 0px 10px;
-  color: var(--white);
-  background-color: var(--blue-1);
-  display: flex;
   margin-right: 50px;
+  background-color: var(--blue-1);
 }
 .message__my .message__text::after {
   content: "";
@@ -523,14 +562,9 @@ select {
   margin-right: auto;
 }
 .message__bot .message__text {
-  padding: 14px 16px;
-  font-size: 16px;
-  line-height: 125%;
   border-radius: 10px 10px 10px 0px;
-  color: var(--white);
-  background-color: var(--grey-1);
-  display: flex;
   margin-left: 50px;
+  background-color: var(--grey-1);
 }
 .message__bot .message__text::before {
   content: "";
@@ -542,6 +576,14 @@ select {
   bottom: 0;
   background: url(./img/Icon_gemini.svg) center/100% no-repeat;
 }
+.message__text {
+  overflow-wrap: anywhere;
+  padding: 14px 16px;
+  font-size: 16px;
+  line-height: 125%;
+  color: var(--white);
+  display: flex;
+}
 
 @keyframes move-message {
   0% {
@@ -551,6 +593,53 @@ select {
   100% {
     top: 0;
     opacity: 1;
+  }
+}
+@media (max-width: 1024px) {
+  .chat {
+    max-width: 100%;
+    min-width: auto;
+    height: auto;
+  }
+  .message__text {
+    font-size: 14px;
+  }
+}
+@media (max-width: 640px) {
+  .chat__header {
+    flex-direction: column;
+    align-items: start;
+    gap: 14px;
+    padding: 16px 18px;
+  }
+  .chat__header-name {
+    font-size: 14px;
+  }
+  .chat__header-name span {
+    font-size: 12px;
+  }
+  .chat__header-checkbox {
+    flex-direction: row-reverse;
+  }
+  .chat__header-box {
+    left: 0;
+  }
+  .chat__wrapper-block {
+    padding-bottom: 18px;
+  }
+  .chat__message-block {
+    padding: 18px;
+    height: 360px;
+  }
+  .chat__wrapper-input {
+    padding: 0 18px;
+  }
+  .chat__button {
+    right: 38px;
+  }
+  .message {
+    max-width: none;
+    width: 100%;
   }
 }
 .descr {

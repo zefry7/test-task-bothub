@@ -1,20 +1,24 @@
 .intro {
+    position: relative;
     &__wrapper {
         @extend .padding-content;
     }
     &__content {
+        padding: 119px 0;
         position: relative;
         z-index: 5;
-        height: 831px;
         display: flex;
         align-items: center;
+        gap: 30px;
     }
     &__info {
-        width: 520px;
+        max-width: 520px;
+        width: 100%;
     }
     &__title {
         margin-bottom: 20px;
-        width: 520px;
+        max-width: 520px;
+        width: 100%;
         font-size: 46px;
         line-height: 130%;
         font-weight: 600;
@@ -30,6 +34,8 @@
     &__button {
         @extend .header__sign-in;
         width: 172px;
+        height: 52px;
+        font-size: 18px;
     }
 
     &__grid {
@@ -38,6 +44,56 @@
         position: absolute;
         height: 100%;
         width: 100%;
-        background: url("./img/grid.svg") center/ 100% no-repeat;
+        background: url("./img/grid.svg") left center/ 1200px 100% repeat-x;
+    }
+}
+
+@media (max-width: 1024px) {
+    .intro {
+        &__content {
+            padding: 66px 0 74px;
+            flex-direction: column;
+            gap: 46px;
+        }
+
+        &__info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        &__info,
+        &__title {
+            max-width: 754px;
+        }
+
+        &__title,
+        &__text {
+            text-align: center;
+        }
+
+        &__title {
+            margin-bottom: 18px;
+            font-size: 40px;
+        }
+
+        &__text {
+            margin-bottom: 38px;
+            font-size: 14px;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .intro {
+
+        &__title {
+            margin-bottom: 14px;
+            font-size: 28px;
+        }
+
+        &__text {
+            margin-bottom: 30px;
+        }
     }
 }
