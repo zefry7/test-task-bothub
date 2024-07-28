@@ -1,6 +1,8 @@
 @import "./null-style";
 @import "./fonts/fonts";
 @import "../components/Layout/Header/header";
+@import "../components/MainPage/Intro/intro";
+@import "../components/MainPage/Intro/Chat/chat";
 @import "../components/MainPage/Descr/descr";
 @import "../components/MainPage/Gener/gener";
 @import "../components/Layout/Footer/footer";
@@ -42,7 +44,7 @@ html, body {
 }
 
 .main {
-    padding-top: 100px;
+    padding-top: 80px;
 }
 
 @media (max-width: 640px) {

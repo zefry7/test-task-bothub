@@ -101,6 +101,16 @@ const data = {
         ]
     },
     mainPage: {
+        intro: {
+            title: "ChatGPT: ваш умный помощник",
+            text: "Экспериментируйте с ChatGPT-4, Midjourney и Claude в одном месте. Без VPN и абонентской платы. Создавайте контент, обрабатывайте данные и получайте ответы на вопросы через удобный интерфейс!",
+            button: "Начать работу",
+            chat: {
+                title: ["BotHub: ChatGPT & Midjourney", "bot"],
+                label: "Сохранить контекст",
+                placeholder: "Спроси о чем-нибудь..."
+            }
+        },
         descr: {
             title: "Возможности ChatGPT",
             list: [
@@ -132,7 +142,7 @@ const data = {
         },
         gener: {
             img: {
-                src: "./img/Gener/img-block.png",
+                src: "./img/Gener/img-block.webp",
                 alt: "Пример изображения"
             },
             title: "Генерация Изображений Через Midjourney ",

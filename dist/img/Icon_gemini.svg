@@ -1,0 +1,19 @@
+<svg width="40.000000" height="40.000000" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+	<desc>
+			Created with Pixso.
+	</desc>
+	<defs>
+		<clipPath id="clip7_7391">
+			<rect id="Icon/gemini" rx="19.500000" width="39.000000" height="39.000000" transform="translate(0.500000 0.500000)" fill="white" fill-opacity="0"/>
+		</clipPath>
+		<radialGradient gradientTransform="translate(9.31318 17.505) rotate(18.6832) scale(28.3833 227.368)" cx="0.000000" cy="0.000000" r="1.000000" id="paint_radial_7_7390_0" gradientUnits="userSpaceOnUse">
+			<stop offset="0.067000" stop-color="#9168C0"/>
+			<stop offset="0.343000" stop-color="#5684D1"/>
+			<stop offset="0.672000" stop-color="#1BA1E3"/>
+		</radialGradient>
+	</defs>
+	<rect id="Icon/gemini" rx="19.500000" width="39.000000" height="39.000000" transform="translate(0.500000 0.500000)" fill="#112441" fill-opacity="1.000000"/>
+	<g clip-path="url(#clip7_7391)">
+		<path id="Vector" d="M33.33 20.02C29.87 20.23 26.61 21.7 24.15 24.16C21.7 26.61 20.23 29.87 20.02 33.33L19.97 33.33C19.76 29.87 18.29 26.61 15.84 24.15C13.38 21.7 10.12 20.23 6.66 20.02L6.66 19.97C10.12 19.76 13.38 18.29 15.84 15.84C18.29 13.38 19.76 10.12 19.97 6.66L20.02 6.66C20.23 10.12 21.7 13.38 24.15 15.83C26.61 18.29 29.87 19.76 33.33 19.97L33.33 20.02Z" fill="url(#paint_radial_7_7390_0)" fill-opacity="1.000000" fill-rule="nonzero"/>
+	</g>
+</svg>

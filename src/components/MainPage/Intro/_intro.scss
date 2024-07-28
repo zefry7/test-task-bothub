@@ -1,0 +1,43 @@
+.intro {
+    &__wrapper {
+        @extend .padding-content;
+    }
+    &__content {
+        position: relative;
+        z-index: 5;
+        height: 831px;
+        display: flex;
+        align-items: center;
+    }
+    &__info {
+        width: 520px;
+    }
+    &__title {
+        margin-bottom: 20px;
+        width: 520px;
+        font-size: 46px;
+        line-height: 130%;
+        font-weight: 600;
+        color: var(--white);
+    }
+    &__text {
+        margin-bottom: 42px;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 125%;
+        color: var(--white)
+    }
+    &__button {
+        @extend .header__sign-in;
+        width: 172px;
+    }
+
+    &__grid {
+        top: 0;
+        left: 0;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: url("./img/grid.svg") center/ 100% no-repeat;
+    }
+}
