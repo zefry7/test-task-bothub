@@ -79,7 +79,7 @@ function Chat(props) {
             </div>
             <div className="chat__wrapper-input">
                 <input type="text" className="chat__input" placeholder={props?.content?.placeholder} ref={inputChat} />
-                <button className="chat__button" onClick={clickSend} ref={buttonSend}></button>
+                <button className="chat__button" aria-label="Кнопка отправки запроса" onClick={clickSend} ref={buttonSend}></button>
             </div>
         </div>
     </div>

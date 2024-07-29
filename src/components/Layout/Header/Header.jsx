@@ -50,7 +50,7 @@ function Header(props) {
                     <ul className="header__block-link">
                         {data?.nav?.map((item, key) => (
                             (key == 0)
-                                ? <li>
+                                ? <li key={key}>
                                     <div className="header__dropdown" ref={dropdown} onClick={() => clickElementActive(dropdown.current, "header__dropdown_active")}>
                                         <span className="header__link">{item?.name}</span>
                                         <div className="header__wrapper-product">
@@ -68,7 +68,7 @@ function Header(props) {
                                         </div>
                                     </div>
                                 </li>
-                                : <li>
+                                : <li key={key}>
                                     <a href="#" className="header__link">{item?.name}</a>
                                 </li>
 
@@ -89,7 +89,7 @@ function Header(props) {
                 {screenWidth > 640 &&
                         <button className="header__sign-in">{data?.button?.text}</button>
                     }
-                <button className="header__button-menu" ref={buttonMenu} onClick={clickMenu}>
+                <button className="header__button-menu" aria-label="Кнопка меню" ref={buttonMenu} onClick={clickMenu}>
                     <span></span>
                     <span></span>
                     <span></span>
