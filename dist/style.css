@@ -150,6 +150,8 @@ select {
   align-items: center;
 }
 .header__logo {
+  width: 97px;
+  height: 29px;
   margin-right: 24.5px;
   transition: all 0.2s linear;
   cursor: pointer;
@@ -1137,6 +1139,7 @@ html, body {
 
 .main {
   padding-top: 80px;
+  min-height: 100vh;
 }
 
 .scroll-lock {
