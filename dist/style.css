@@ -120,14 +120,28 @@ select {
   font-display: swap;
 }
 .header {
-  backdrop-filter: blur(18px);
-  border-bottom: 1px solid var(--grey-3);
   position: fixed;
   scrollbar-gutter: stable;
-  width: 100vw;
+  width: 100%;
   z-index: 50;
   top: 0;
   left: 0;
+  min-width: 375px;
+}
+.header::after {
+  content: "";
+  display: inline-block;
+  height: 80px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--grey-3);
+}
+.header_height {
+  height: 100%;
 }
 .header__content {
   height: 80px;
@@ -143,6 +157,9 @@ select {
 .header__logo:hover {
   opacity: 0.8;
 }
+.header__logo:active {
+  transform: translateY(3px);
+}
 .header__line {
   margin-right: 23.5px;
   border-left: 1px solid var(--grey-3);
@@ -150,9 +167,13 @@ select {
 }
 .header__nav {
   margin-right: auto;
+  display: flex;
+  align-items: center;
+  height: 100%;
 }
 .header__block-link {
   display: flex;
+  width: 100%;
   gap: 34px;
 }
 .header__dropdown {
@@ -248,6 +269,7 @@ select {
 .header__lang {
   position: relative;
   margin-right: 34px;
+  width: 70px;
 }
 .header__lang-select {
   display: flex;
@@ -381,15 +403,16 @@ select {
   }
   .header__nav {
     position: absolute;
-    top: -100dvh;
+    top: -1200px;
     left: 0;
     width: 100%;
     padding: 123px 40px 42px;
-    height: 100dvh;
+    min-height: 100dvh;
     background: var(--black-1);
     transition: top 0.2s linear;
     z-index: -1;
     overflow: auto;
+    align-items: flex-start;
   }
   .header__nav_active {
     top: 0px;
@@ -412,6 +435,7 @@ select {
     width: 100%;
     padding: 18px 0px;
     gap: 18px 0;
+    transition: none;
   }
   .header__product {
     gap: 13px;
@@ -632,9 +656,12 @@ select {
   background-color: var(--bg-main);
   font-size: 14px;
   line-height: 130%;
-  color: var(--blue-5);
-  padding: 14px 20px;
+  color: var(--white);
+  padding: 14px 60px 14px 20px;
   font-weight: 500;
+}
+.chat__input::placeholder {
+  color: var(--blue-5);
 }
 .chat__button {
   height: 38px;
@@ -652,6 +679,7 @@ select {
   background: url(./img/Icon_send.svg) center/18px no-repeat, var(--blue-2);
 }
 .chat__button:active {
+  transform: translateY(3px);
   background: url(./img/Icon_send.svg) center/18px no-repeat, var(--blue-3);
 }
 
@@ -1021,7 +1049,7 @@ select {
   background-color: var(--blue-1);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1120px) {
   .footer {
     background: radial-gradient(52% 103% at 50% -3%, rgba(28, 100, 242, 0.5), rgba(8, 16, 39, 0) 53.977%), rgb(18, 24, 37);
   }
@@ -1044,7 +1072,7 @@ select {
     font-size: 14px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .footer {
     background: radial-gradient(98% 59% at 50% -7%, rgba(28, 100, 242, 0.5), rgba(8, 16, 39, 0) 72.372%), rgb(18, 24, 37);
   }
@@ -1052,14 +1080,20 @@ select {
     padding: 44px 0;
   }
   .footer__wrapper-list {
-    flex-direction: column;
-    justify-content: space-between;
+    display: grid;
+    grid-template: repeat(2, max-content)/repeat(2, 1fr);
   }
   .footer__col {
     gap: 14px;
   }
   .footer__list {
     gap: 14px;
+  }
+}
+@media (max-width: 450px) {
+  .footer__wrapper-list {
+    display: flex;
+    flex-direction: column;
   }
 }
 :root {
@@ -1083,14 +1117,16 @@ select {
 html, body {
   height: 100%;
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 #root {
   background-color: var(--black-1);
   height: auto;
-  display: grid;
-  grid-template-rows: auto 1fr auto;
+  min-height: 100%;
   min-width: 375px;
+  display: grid;
+  grid-template-rows: 1fr auto;
 }
 
 .padding-content, .header__wrapper, .intro__wrapper, .descr__wrapper, .gener__wrapper, .footer__wrapper {
@@ -1105,6 +1141,16 @@ html, body {
 
 .scroll-lock {
   overflow: hidden;
+}
+
+.loading {
+  font-size: 36px;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  height: 500px;
 }
 
 @media (max-width: 640px) {

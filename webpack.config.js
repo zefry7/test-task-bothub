@@ -7,11 +7,11 @@ module.exports = (env) => {
     return {
         mode: env.mode,
         entry: {
-            main: "./src/index.js",
+            main:  path.resolve(__dirname, "src/index.js"),
         },
         output: {
             path: path.resolve(__dirname, "dist"),
-            filename: "[name].js",
+            filename: "[name].[contenthash].js",
             clean: true
         },
         devServer: {

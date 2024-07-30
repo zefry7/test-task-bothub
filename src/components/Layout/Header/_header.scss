@@ -1,12 +1,27 @@
 .header {
-    backdrop-filter: blur(18px);
-    border-bottom: 1px solid var(--grey-3);
     position: fixed;
     scrollbar-gutter: stable;
-    width: 100vw;
+    width: 100%;
     z-index: 50;
     top: 0;
     left: 0;
+    min-width: 375px;
+    &::after {
+        content: "";
+        display: inline-block;
+        height: 80px;
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+        backdrop-filter: blur(18px);
+        border-bottom: 1px solid var(--grey-3); 
+    }
+    &_height {
+        height: 100%;
+    }
+
     &__wrapper {
         @extend .padding-content;
     }
@@ -23,6 +38,9 @@
         &:hover {
             opacity: 0.8;
         }
+        &:active {
+            transform: translateY(3px);
+        }
     }
     &__line {
         margin-right: 23.5px;
@@ -31,9 +49,13 @@
     }
     &__nav {
         margin-right: auto;
+        display: flex;
+        align-items: center;
+        height: 100%;
     }
     &__block-link {
         display: flex;
+        width: 100%;
         gap: 34px;
     }
     &__dropdown {
@@ -134,6 +156,7 @@
     &__lang {
         position: relative;
         margin-right: 34px;
+        width: 70px;
         &-select {
             display: flex;
             align-items: center;
@@ -285,15 +308,16 @@
         }
         &__nav {
             position: absolute;
-            top: -100dvh;
+            top: -1200px;
             left: 0;
             width: 100%;
             padding: 123px 40px 42px;
-            height: 100dvh;
+            min-height: 100dvh;
             background: var(--black-1);
             transition: top 0.2s linear;
             z-index: -1;
             overflow: auto;
+            align-items: flex-start;
         }
         &__nav_active {
             top: 0px;
@@ -324,6 +348,7 @@
             width: 100%;
             padding: 18px 0px;
             gap: 18px 0;
+            transition: none;
         }
 
         &__product { 

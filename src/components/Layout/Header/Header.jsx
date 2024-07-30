@@ -2,12 +2,13 @@ import React, { useCallback, useEffect, useRef, useState } from "react";
 
 function Header(props) {
     const data = props.content;
+    const screenWidth = props.screenWidth
     const dropdown = useRef();
     const langElement = useRef();
     const navElement = useRef()
     const buttonMenu = useRef()
+    const headerBlock = useRef()
     const [langPage, setLangPage] = useState(data?.lang[0])
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth)
 
     const clickElementActive = useCallback((element, classActive) => {
         if (element) {
@@ -25,21 +26,20 @@ function Header(props) {
         buttonMenu.current.classList.toggle("header__button-menu_active")
         navElement.current.classList.toggle("header__nav_active")
         document.body.classList.toggle("scroll-lock")
+        headerBlock.current.classList.toggle("header_height")
     }, [])
 
     useEffect(() => {
-        window.addEventListener("resize", () => {
-            setScreenWidth(window.innerWidth)
-            if (window.innerWidth > 840) {
-                buttonMenu.current.classList.remove("header__button-menu_active")
-                navElement.current.classList.remove("header__nav_active")
-                dropdown.current.classList.remove("header__dropdown_active")
-                document.body.classList.remove("scroll-lock")
-            }
-        })
-    }, [])
+        if (screenWidth > 840) {
+            buttonMenu.current.classList.remove("header__button-menu_active")
+            navElement.current.classList.remove("header__nav_active")
+            dropdown.current.classList.remove("header__dropdown_active")
+            document.body.classList.remove("scroll-lock")
+            headerBlock.current.classList.remove("header_height")
+        }
+    }, [screenWidth])
 
-    return <header className="header">
+    return <header className="header" ref={headerBlock}>
         <div className="header__wrapper">
             <div className="header__content">
                 <div className="header__logo">
@@ -51,8 +51,8 @@ function Header(props) {
                         {data?.nav?.map((item, key) => (
                             (key == 0)
                                 ? <li key={key}>
-                                    <div className="header__dropdown" ref={dropdown} onClick={() => clickElementActive(dropdown.current, "header__dropdown_active")}>
-                                        <span className="header__link">{item?.name}</span>
+                                    <div className="header__dropdown" ref={dropdown}>
+                                        <span className="header__link" onClick={() => clickElementActive(dropdown.current, "header__dropdown_active")}>{item?.name}</span>
                                         <div className="header__wrapper-product">
                                             {item?.select?.map((v, i) => (
                                                 <div className="header__product" key={i}>
@@ -71,7 +71,6 @@ function Header(props) {
                                 : <li key={key}>
                                     <a href="#" className="header__link">{item?.name}</a>
                                 </li>
-
                         ))}
                     </ul>
                     {screenWidth <= 640 &&
@@ -87,8 +86,8 @@ function Header(props) {
                     </ul>
                 </div>
                 {screenWidth > 640 &&
-                        <button className="header__sign-in">{data?.button?.text}</button>
-                    }
+                    <button className="header__sign-in">{data?.button?.text}</button>
+                }
                 <button className="header__button-menu" aria-label="Кнопка меню" ref={buttonMenu} onClick={clickMenu}>
                     <span></span>
                     <span></span>

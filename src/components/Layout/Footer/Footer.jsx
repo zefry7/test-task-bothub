@@ -1,24 +1,24 @@
 import React from "react";
 
 function Footer(props) {
-
+    const data = props?.content
 
     return <footer className="footer">
         <div className="footer__wrapper">
             <div className="footer__content">
                 <div className="footer__col">
                     <div className="footer__logo">
-                        <img src={props?.content?.logo?.src} alt={props?.content?.logo?.alt} />
+                        <img src={data?.logo?.src} alt={data?.logo?.alt} />
                     </div>
-                    <p className="footer__text">{props?.content?.company}</p>
-                    <p className="footer__text">{props?.content?.name}</p>
-                    <p className="footer__text">{props?.content?.accept}</p>
+                    <p className="footer__text">{data?.company}</p>
+                    <p className="footer__text">{data?.name}</p>
+                    <p className="footer__text">{data?.accept}</p>
                     <div className="footer__alri">
-                        <img src={props?.content?.alri?.src} alt={props?.content?.alri?.alt} />
+                        <img src={data?.alri?.src} alt={data?.alri?.alt} />
                     </div>
                 </div>
                 <div className="footer__wrapper-list">
-                    {props?.content?.listCol?.map((col, key) => (
+                    {data?.listCol?.map((col, key) => (
                         <div className="footer__col" key={key}>
                             <h3 className="footer__title">{col?.title}</h3>
                             <div className="footer__list">

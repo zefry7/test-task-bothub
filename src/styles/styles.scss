@@ -29,14 +29,16 @@
 html, body {
     height: 100%;
     scrollbar-gutter: stable;
+    scroll-behavior: smooth;
 }
 
 #root {
     background-color: var(--black-1);
     height: auto;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
+    min-height: 100%;
     min-width: 375px;
+    display: grid;
+    grid-template-rows: 1fr auto;
 }
 
 .padding-content {
@@ -51,6 +53,17 @@ html, body {
 
 .scroll-lock {
     overflow: hidden;
+}
+
+
+.loading {
+    font-size: 36px;
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    height: 500px;
 }
 
 @media (max-width: 640px) {

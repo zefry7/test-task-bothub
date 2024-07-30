@@ -1,13 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Chat from "./Chat/Chat";
 
 function Intro(props) {
-    let [screenWidth, setScreenWidth] = useState(window.innerWidth)
-    useEffect(() => {
-        window.addEventListener("resize", () => {
-            setScreenWidth(window.innerWidth)
-        })
-    }, [])
+    const screenWidth = props?.screenWidth
 
     return <section className="intro">
         <div className="intro__wrapper">
