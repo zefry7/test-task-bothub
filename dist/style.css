@@ -126,7 +126,7 @@ select {
   z-index: 50;
   top: 0;
   left: 0;
-  min-width: 375px;
+  min-width: 320px;
 }
 .header::after {
   content: "";
@@ -1124,7 +1124,7 @@ html, body {
   background-color: var(--black-1);
   height: auto;
   min-height: 100%;
-  min-width: 375px;
+  min-width: 320px;
   display: grid;
   grid-template-rows: 1fr auto;
 }
