@@ -81,7 +81,9 @@ function Header(props) {
                     <button className="header__lang-select" onClick={() => clickElementActive(langElement.current, "header__lang_active")}>{langPage}</button>
                     <ul className="header__lang-block">
                         {data?.lang?.map((item, key) => (
-                            <li className="header__lang-item" key={key} onClick={(e) => changeLang(e)} role="button" tabIndex={0}>{item}</li>
+                            <li key={key}>
+                                <button className="header__lang-item" onClick={(e) => changeLang(e)} tabIndex={0}>{item}</button>
+                            </li>
                         ))}
                     </ul>
                 </div>

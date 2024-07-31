@@ -277,6 +277,7 @@ select {
   display: flex;
   align-items: center;
   background: initial;
+  background-color: transparent;
 }
 .header__lang-select::before {
   content: "";
@@ -318,6 +319,9 @@ select {
   position: absolute;
   border: 1px solid var(--grey-1);
   background-color: var(--grey-3);
+}
+.header__lang-item {
+  background-color: transparent;
 }
 .header__lang_active .header__lang-select {
   color: var(--blue-4);
