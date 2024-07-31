@@ -52,7 +52,7 @@ function Header(props) {
                             (key == 0)
                                 ? <li key={key}>
                                     <div className="header__dropdown" ref={dropdown}>
-                                        <span className="header__link" onClick={() => clickElementActive(dropdown.current, "header__dropdown_active")}>{item?.name}</span>
+                                        <span className="header__link" onClick={() => clickElementActive(dropdown.current, "header__dropdown_active")} tabIndex={0}>{item?.name}</span>
                                         <div className="header__wrapper-product">
                                             {item?.select?.map((v, i) => (
                                                 <div className="header__product" key={i}>
@@ -78,10 +78,10 @@ function Header(props) {
                     }
                 </nav>
                 <div className="header__lang" ref={langElement}>
-                    <p className="header__lang-select" onClick={() => clickElementActive(langElement.current, "header__lang_active")}>{langPage}</p>
+                    <button className="header__lang-select" onClick={() => clickElementActive(langElement.current, "header__lang_active")}>{langPage}</button>
                     <ul className="header__lang-block">
                         {data?.lang?.map((item, key) => (
-                            <li className="header__lang-item" key={key} onClick={(e) => changeLang(e)}>{item}</li>
+                            <li className="header__lang-item" key={key} onClick={(e) => changeLang(e)} role="button" tabIndex={0}>{item}</li>
                         ))}
                     </ul>
                 </div>

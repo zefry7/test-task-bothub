@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { Configuration, OpenAIApi } from "openai-edge";
 
 function Chat(props) {
@@ -8,7 +8,7 @@ function Chat(props) {
     const newMessage = useRef(true)
     const buttonSend = useRef()
 
-    const messageBot = (myMessage) => {
+    const messageBot = useCallback((myMessage) => {
         const configuration = new Configuration({
             apiKey: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5MGE2ZTgxLTRiMDMtNGQxNC1hMGQxLWI3N2RkZjlkMDY2ZiIsImlzRGV2ZWxvcGVyIjp0cnVlLCJpYXQiOjE3MjA1Mjk0NDgsImV4cCI6MjAzNjEwNTQ0OH0.Dm8QJpXfX2ChWcYZ5c0SLNzGpmEmh1dYPAMW3wz4v5M",
             basePath: "https://bothub.chat/api/v2/openai/v1",
@@ -28,22 +28,22 @@ function Chat(props) {
         })();
 
         return result
-    }
+    }, [])
 
-    const clickSend = async () => {
+    const clickSend = useCallback(async () => {
         const { value } = inputChat.current
 
         if (newMessage.current == true) {
             if (value) {
                 newMessage.current = false
-                setList([...list, <MyMessage text={value} />])
+                setList([...list, <MyMessage text={value} key={list.length + 1}/>])
                 inputChat.current.value = null
                 const result = await messageBot(value)
-                setList([...list, <MyMessage text={value} />, <BotMessage text={result} />])
+                setList([...list, <MyMessage text={value} key={list.length + 1}/>, <BotMessage text={result} key={list.length + 2}/>])
                 newMessage.current = true
             }
         }
-    }
+    }, [list])
 
     useEffect(() => {
         messageBlock.current.scrollTo({
@@ -73,7 +73,7 @@ function Chat(props) {
         </div>
         <div className="chat__wrapper-block">
             <div className="chat__message-block" ref={messageBlock}>
-                {list?.map((v) => (
+                {list?.map((v, i) => (
                     v
                 ))}
             </div>

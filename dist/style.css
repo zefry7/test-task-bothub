@@ -848,21 +848,27 @@ select {
   color: var(--white);
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 1200px) {
   .descr {
     margin-bottom: 74px;
+  }
+  .descr__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   .descr__title {
     margin-bottom: 38px;
     font-size: 30px;
   }
   .descr__list {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(2, minmax(48%, max-content));
     gap: 24px;
   }
   .descr__item {
     padding: 24px 18px 26px;
     min-height: 222px;
+    max-width: 410px;
   }
   .descr__item-title {
     margin-bottom: 14px;
@@ -872,7 +878,7 @@ select {
     font-size: 14px;
   }
 }
-@media (max-width: 640px) {
+@media (max-width: 768px) {
   .descr {
     margin-bottom: 64px;
   }
@@ -949,6 +955,7 @@ select {
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 754px;
   }
   .gener__title {
     font-size: 30px;
@@ -1139,7 +1146,7 @@ html, body {
 
 .main {
   padding-top: 80px;
-  min-height: 100vh;
+  min-height: min-content;
 }
 
 .scroll-lock {
@@ -1154,6 +1161,16 @@ html, body {
   justify-content: center;
   font-weight: 600;
   height: 500px;
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--bg-main);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--blue-2);
+  border-radius: 5px;
 }
 
 @media (max-width: 640px) {
